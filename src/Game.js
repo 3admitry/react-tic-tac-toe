@@ -12,7 +12,6 @@ const Game = () => {
     })
     let [stepNumber, setStepNumber] = useState(0)
     let [xIsNext, setXIsNext] = useState(true)
-    let [status, setStatus] = useState('')
 
     function handleClick(i) {
         const historySliced = history.slice(0, stepNumber + 1);
@@ -33,6 +32,7 @@ const Game = () => {
         setStepNumber(historySliced.length)
         setXIsNext(!xIsNext)
     }
+
     function jumpTo(step) {
         setStepNumber(step)
         setXIsNext((step % 2) === 0)
@@ -42,10 +42,11 @@ const Game = () => {
     const current = history[stepNumber];
     const winner = calculateWinner(current.squares);
 
+    let status;
     if (winner) {
-        setStatus("Winner: " + winner)
+        status = "Winner: " + winner;
     } else {
-        setStatus("Next player: " + (xIsNext ? "X" : "O"))
+        status = "Next player: " + (xIsNext ? "X" : "O");
     }
 
     const moves = history.map((step, move) => {
@@ -73,6 +74,7 @@ const Game = () => {
             </div>
         </div>
     );
+
 }
 
 export default Game;
