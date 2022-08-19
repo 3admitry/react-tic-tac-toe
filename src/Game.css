@@ -59,6 +59,8 @@ ol, ul {
     font-size: 27px;
     color: #12c9b8;
     width: 200px;
+    text-align: left;
+    padding-left: 43px;
 }
 
 .game-info li {
